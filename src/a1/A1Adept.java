@@ -27,7 +27,7 @@ public class A1Adept {
 		
 		String[] firstName = new String[totalCustomers];
 		String[] lastName = new String[totalCustomers];
-		String[] itemsBought = new String[totalCustomers];
+		// String[] itemsBought = new String[totalCustomers];
 		double[] totalCost = new double[totalCustomers]; 
 		
 		for(int ii = 0; ii < totalCustomers; ii++) { 
@@ -36,31 +36,34 @@ public class A1Adept {
 			
 			int numberOfItems = scan.nextInt(); 
 			
+			for (int n = 0; n < numberOfItems; n++) {
 			int tempQuantity = scan.nextInt(); 
+			
 			String tempName = scan.next(); 
 			double tempCost = 0.0; 
 			double costForCustomer = 0.0;
-				for(int iii = 0; iii < totalItems; iii++) {
+				for(int iii = 0; iii < numberOfItems; iii++) {
 					if(tempName.equals(itemName[iii])) {
+						System.out.println(tempQuantity + " " + tempCost);
 						costForCustomer = costForCustomer + (tempQuantity * tempCost); 
 					}
 					totalCost[ii] = costForCustomer;
 				}
-			
+			}
 			
 			
 		}
 	
 		// CALCULATE AVERAGE COST PER CUSTOMER
 		double averageCost = 0.0; 
-		
+		double sumOfCosts = 0.0;
+
 		for(int x = 0; x < totalCustomers; x++) {
-			double sumOfCosts = 0.0;
 			
 			sumOfCosts = sumOfCosts + totalCost[x]; 
 		}
 		
-		averageCost = averageCost / totalCustomers; 
+		averageCost = sumOfCosts / totalCustomers; 
 		
 		// CALCULATE MAX COST 
 		
