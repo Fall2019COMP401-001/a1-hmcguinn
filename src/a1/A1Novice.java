@@ -39,8 +39,9 @@ public class A1Novice {
 					
 				// Prints out total cost per customer in correct format 
 					
+					String printCost = String.format("%.2f", costOfItems);
 					System.out.println(firstName.charAt(0) + ". " + lastName + 
-							": " + costOfItems );
+							": " + printCost );
 	
 
 
