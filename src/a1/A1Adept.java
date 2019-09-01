@@ -74,11 +74,10 @@ public class A1Adept {
 	   // Return proper values
 		
 		System.out.println("Biggest: " + customerNames[0][biggestIndex] + " " + customerNames[1][biggestIndex] +
-				"(" + String.format("%.2f", biggest) + ")");
+				" (" + String.format("%.2f", biggest) + ")");
 		System.out.println("Smallest: " + customerNames[0][smallestIndex] + " " + customerNames[1][smallestIndex] +
-				"(" + String.format("%.2f", smallest) + ")");
+				" (" + String.format("%.2f", smallest) + ")");
 		System.out.println("Average: " + String.format("%.2f", average));
-
 	    
 	}
 }
