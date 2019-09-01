@@ -1,5 +1,6 @@
 package a1;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class A1Adept {
@@ -11,56 +12,69 @@ public class A1Adept {
 		//CLASS FOR EACH CUSTOMER
 		
 		int totalItems = scan.nextInt(); 
+		
+		// hashmap 
+		
+	    HashMap<String, Double> hashOfItems = new HashMap<String, Double>();
+	    
+	    for(int i = 0; i < totalItems; i++) {
+	    	hashOfItems.put(scan.next(), scan.nextDouble());
+	    }
+	    
+	    
+	  int  totalCustomers = scan.nextInt();
+		String[][] customerNames = new String[2][totalCustomers];
+				
+		int[] numberOfItemsBought = new int[totalCustomers]; 
+		double[] totalCostPerCustomer = new double[totalCustomers]; 
 
-		Item[] itemArray = new Item[totalItems]; 
-		
-		for(int i=0; i< totalItems; i++) {
-			itemArray[i] = new Item();
-			}
-		
-	for(int i=0; i < totalItems; i++) {
-			String newItemName = scan.next(); 
-		  	itemArray[i].setItemName(newItemName);
-		  	double newPriceOfItem = scan.nextDouble(); 
-		  	itemArray[i].setItemPrice(newPriceOfItem);
-		 }
-	
-	int totalCustomers = scan.nextInt(); 
-	// DO THE SAME BUT FOR THE CUSTOMER OBJECT
-	Customer[] customerArray = new Customer[totalCustomers];
-	
-	for(int i=0; i< totalCustomers; i++) {
-		customerArray[i] = new Customer();
-		}
-	
-	for(int i=0; i < totalCustomers; i++) {
-		String tempString = scan.next();
-		customerArray[i].setFirstName(tempString);
-		tempString= scan.next(); 
-		customerArray[i].setLastName(tempString);
-		
-		int tempTotalItems= scan.nextInt(); 
-		customerArray[i].setItemsBought(tempTotalItems);
-		
-		for (int ii = 0; ii< tempTotalItems; i++) {
+		for(int i = 0; i< totalCustomers; i++) {
+			customerNames[0][i] = scan.next();
+			customerNames[1][i] = scan.next(); 
 			
-		String tempName = scan.next();
-		customerArray[i].setItemName(tempName);
-		int tempQuantity = scan.nextInt();
-		customerArray[i].setItemsBought(tempQuantity);
-		}	
-	} 
-		
-	for(int z =0; z<totalCustomers; z++) {
-		for(int i=0; i< totalItems; i++) {
-			String tempItemName = itemArray[i].getItemName();
-			if(tempItemName.equals(customerArray[z].getItemName[i])) {
-				double totalSpentTemp = (itemArray[i].getItemPrice() * customerArray[z].getItemsBought[i]());
-				customerArray[z].setTotalSpent(totalSpentTempt);
+			numberOfItemsBought[i] = scan.nextInt(); 
+			
+			for(int ii = 0; ii<numberOfItemsBought[i]; ii++) {
+				int tempInt = scan.nextInt(); 
+				totalCostPerCustomer[i] = totalCostPerCustomer[i] +(tempInt * hashOfItems.get(scan.next()));
 			}
 		}
-	}
-	
+	    
+	   // Calculate biggest value
+		double biggest = 0;
+		int biggestIndex =0; 
+		for(int i = 0; i<totalCustomers; i++) {
+			if(biggest > totalCostPerCustomer[i]) {
+				biggest = totalCostPerCustomer[i];
+				biggestIndex = i; 
+			}	
 		}
-	}
+		// Calculate smallest value 
+		double smallest = 10000000; 
+		int smallestIndex = 0; 
+		
+		for(int i = 0; i < totalCustomers; i++) {
+			if(smallest < totalCostPerCustomer[i]) {
+				smallest = totalCostPerCustomer[i];
+				smallestIndex = i; 
+			}
+		}
+		
+	   // Calculate average value
+		double average = 0;
+		for(int i = 0; i<totalCustomers; i++) {
+			average = average + totalCostPerCustomer[i];
+		}
+		average = average / totalCustomers; 
+		
+	   // Return proper values
+		
+		System.out.println("Biggest: " + customerNames[0][biggestIndex] + " " + customerNames[1][biggestIndex] +
+				"(" + biggest + ")");
+		System.out.println("Smallest: " + customerNames[0][smallestIndex] + " " + customerNames[1][smallestIndex] +
+				"(" + smallest + ")");
+		System.out.println("Average: " + average);
 
+	    
+	}
+}
