@@ -38,27 +38,31 @@ public class A1Adept {
 				int tempInt = scan.nextInt(); 
 				totalCostPerCustomer[i] = totalCostPerCustomer[i] +(tempInt * hashOfItems.get(scan.next()));
 			}
+
 		}
 	    
 	   // Calculate biggest value
 		double biggest = 0;
 		int biggestIndex =0; 
 		for(int i = 0; i<totalCustomers; i++) {
-			if(biggest > totalCostPerCustomer[i]) {
+			if(biggest < totalCostPerCustomer[i]) {
 				biggest = totalCostPerCustomer[i];
 				biggestIndex = i; 
 			}	
 		}
+		
 		// Calculate smallest value 
 		double smallest = 10000000; 
 		int smallestIndex = 0; 
 		
 		for(int i = 0; i < totalCustomers; i++) {
-			if(smallest < totalCostPerCustomer[i]) {
+			if(smallest > totalCostPerCustomer[i]) {
 				smallest = totalCostPerCustomer[i];
 				smallestIndex = i; 
 			}
 		}
+		
+		
 		
 	   // Calculate average value
 		double average = 0;
@@ -70,10 +74,10 @@ public class A1Adept {
 	   // Return proper values
 		
 		System.out.println("Biggest: " + customerNames[0][biggestIndex] + " " + customerNames[1][biggestIndex] +
-				"(" + biggest + ")");
+				"(" + String.format("%.2f", biggest) + ")");
 		System.out.println("Smallest: " + customerNames[0][smallestIndex] + " " + customerNames[1][smallestIndex] +
-				"(" + smallest + ")");
-		System.out.println("Average: " + average);
+				"(" + String.format("%.2f", smallest) + ")");
+		System.out.println("Average: " + String.format("%.2f", average));
 
 	    
 	}
