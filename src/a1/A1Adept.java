@@ -79,5 +79,6 @@ public class A1Adept {
 				" (" + String.format("%.2f", smallest) + ")");
 		System.out.println("Average: " + String.format("%.2f", average));
 	    
+		
 	}
 }
