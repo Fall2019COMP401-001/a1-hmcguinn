@@ -80,5 +80,6 @@ public class A1Adept {
 		System.out.println("Average: " + String.format("%.2f", average));
 	    
 		
+		
 	}
 }
