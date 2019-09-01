@@ -12,96 +12,55 @@ public class A1Adept {
 		
 		int totalItems = scan.nextInt(); 
 
+		Item[] itemArray = new Item[totalItems]; 
 		
-		// FOR loop that initalizes an object for each item 
-		
-		double[] itemCost = new double[totalItems];
-		String[] itemName = new String[totalItems];
-		
-		for(int i = 0; i < totalItems; i++) {
-			itemName[i] = scan.next();
-			itemCost[i] = scan.nextDouble(); 
-		}
-		
-		int totalCustomers = scan.nextInt(); 
-		
-		String[] firstName = new String[totalCustomers];
-		String[] lastName = new String[totalCustomers];
-		// String[] itemsBought = new String[totalCustomers];
-		double[] totalCost = new double[totalCustomers]; 
-		
-		for(int ii = 0; ii < totalCustomers; ii++) { 
-			firstName[ii] = scan.next(); 
-			lastName[ii] = scan.next(); 
-			
-			int numberOfItems = scan.nextInt(); 
-			
-			for (int n = 0; n < numberOfItems; n++) {
-			int tempQuantity = scan.nextInt(); 
-			
-			String tempName = scan.next(); 
-			double tempCost = 0.0; 
-			double costForCustomer = 0.0;
-				for(int iii = 0; iii < numberOfItems; iii++) {
-					if(tempName.equals(itemName[iii])) {
-						System.out.println(tempQuantity + " " + tempCost);
-						costForCustomer = costForCustomer + (tempQuantity * tempCost); 
-					}
-					totalCost[ii] = costForCustomer;
-				}
+		for(int i=0; i< totalItems; i++) {
+			itemArray[i] = new Item();
 			}
-			
-			
+		
+	for(int i=0; i < totalItems; i++) {
+			String newItemName = scan.next(); 
+		  	itemArray[i].setItemName(newItemName);
+		  	double newPriceOfItem = scan.nextDouble(); 
+		  	itemArray[i].setItemPrice(newPriceOfItem);
+		 }
+	
+	int totalCustomers = scan.nextInt(); 
+	// DO THE SAME BUT FOR THE CUSTOMER OBJECT
+	Customer[] customerArray = new Customer[totalCustomers];
+	
+	for(int i=0; i< totalCustomers; i++) {
+		customerArray[i] = new Customer();
 		}
 	
-		// CALCULATE AVERAGE COST PER CUSTOMER
-		double averageCost = 0.0; 
-		double sumOfCosts = 0.0;
-
-		for(int x = 0; x < totalCustomers; x++) {
+	for(int i=0; i < totalCustomers; i++) {
+		String tempString = scan.next();
+		customerArray[i].setFirstName(tempString);
+		tempString= scan.next(); 
+		customerArray[i].setLastName(tempString);
+		
+		int tempTotalItems= scan.nextInt(); 
+		customerArray[i].setItemsBought(tempTotalItems);
+		
+		for (int ii = 0; ii< tempTotalItems; i++) {
 			
-			sumOfCosts = sumOfCosts + totalCost[x]; 
+		String tempName = scan.next();
+		customerArray[i].setItemName(tempName);
+		int tempQuantity = scan.nextInt();
+		customerArray[i].setItemsBought(tempQuantity);
+		}	
+	} 
+		
+	for(int z =0; z<totalCustomers; z++) {
+		for(int i=0; i< totalItems; i++) {
+			String tempItemName = itemArray[i].getItemName();
+			if(tempItemName.equals(customerArray[z].getItemName[i])) {
+				double totalSpentTemp = (itemArray[i].getItemPrice() * customerArray[z].getItemsBought[i]());
+				customerArray[z].setTotalSpent(totalSpentTempt);
+			}
 		}
-		
-		averageCost = sumOfCosts / totalCustomers; 
-		
-		// CALCULATE MAX COST 
-		
-		int maxCostIndex = -1;
-		double maxCost = 0.0;
-		
-		for (int z = 0; z < totalCustomers; z++) {
-			if (totalCost[z] > maxCost)
-				maxCost = totalCost[z];
-				maxCostIndex = z; 
-		}
-		
-		// CALCULATE SMALLEST COST
-		
-		int smallestCostIndex = -1;
-		double smallestCost = 1000000;
-		
-		for (int w= 0; w < totalCustomers; w++) {
-			if (totalCost[w] < smallestCost)
-				smallestCost = totalCost[w];
-				smallestCostIndex = w; 
-		}
-		
-		
-		// Print the proper output 
-		
-		System.out.println("Biggest: " + firstName[maxCostIndex] + " " + lastName[maxCostIndex] + 
-						"(" + maxCost + ")"); 
-		
-		System.out.println("Smallest: " + firstName[smallestCostIndex] + " " + lastName[smallestCostIndex] + 
-				"(" + smallestCost + ")"); 
-		
-		System.out.println("Average: " + averageCost ); 
-
-
-		
-		
-		
+	}
+	
 		}
 	}
 
