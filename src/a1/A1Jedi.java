@@ -42,7 +42,8 @@ public class A1Jedi {
 					
 						for(int iii = 0; iii < totalItems; iii++) {
 							if(tempName.contentEquals(itemNames[iii])) {
-								itemsBought[0][iii] = itemsBought[0][iii] + 1; 
+								
+								itemsBought[0][iii] = itemsBought[0][iii] + temp;
 								if(hasBought[ii] == false) {
 									hasBought[ii] = true;
 									itemsBought[1][iii] = itemsBought[1][iii] + 1; 
