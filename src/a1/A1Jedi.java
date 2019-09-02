@@ -61,10 +61,10 @@ public class A1Jedi {
 			for(int i = 0; i< totalItems; i++) {
 
 				if(itemsBought[1][i]==0) {
-					System.out.println(" No customers bought " + itemNames[i]);
+					System.out.println("No customers bought " + itemNames[i]);
 				}
 				else {
-				System.out.println(itemsBought[1][i] + " customers bought " + itemsBought[0][i] + " " + itemNames[i] + "\n");
+				System.out.println(itemsBought[1][i] + " customers bought " + itemsBought[0][i] + " " + itemNames[i] );
 				
 				
 				}
