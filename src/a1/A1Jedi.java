@@ -41,11 +41,11 @@ public class A1Jedi {
 					listOfItemNames[ii] = tempName; 
 					
 						for(int iii = 0; iii < totalItems; iii++) {
-							if(tempName == itemNames[iii]) {
-								itemsBought[0][iii]++; 
-								if(hasBought[ii] = false) {
+							if(tempName.contentEquals(itemNames[iii])) {
+								itemsBought[0][iii] = itemsBought[0][iii] + 1; 
+								if(hasBought[ii] == false) {
 									hasBought[ii] = true;
-									itemsBought[1][iii]++; 
+									itemsBought[1][iii] = itemsBought[1][iii] + 1; 
 							}
 						}
 						
@@ -55,20 +55,20 @@ public class A1Jedi {
 			}
 			}
 				
-			for(int i = 0; i< totalItems; i++) {
-			/*
+		
+			
 			for(int i = 0; i< totalItems; i++) {
 
-				if(itemsBought[i].equals(0)) {
-					System.out.println("No customers bought " + itemNames[i]);
+				if(itemsBought[1][i]==0) {
+					System.out.println(" No customers bought " + itemNames[i]);
 				}
-				
-				System.out.println(itemsBought[1][i] + "customers bought " + itemsBought[0][i] + " " + itemNames[i] + "\n");
+				else {
+				System.out.println(itemsBought[1][i] + " customers bought " + itemsBought[0][i] + " " + itemNames[i] + "\n");
 				
 				
 				}
+			}
 		
-		*/
 		
 		
 		
