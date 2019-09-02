@@ -14,6 +14,8 @@ public class A1Jedi {
 		String[] itemNames = new String[totalItems]; 
 		int[][] itemsBought = new int[2][totalItems]; 
 		
+		
+		
 		for(int i = 0; i< totalItems; i++) {
 			itemNames[i] = scan.next(); 
 			double trash = scan.nextDouble(); 
@@ -34,9 +36,16 @@ public class A1Jedi {
 					String tempName = scan.next(); 
 					int index = 0;
 					
+					boolean[] hasBought = new boolean[numberOfItemsBought];
+					String[] listOfItemNames = new String[numberOfItemsBought];
+					listOfItemNames[ii] = tempName; 
+					
 						for(int iii = 0; iii < totalItems; iii++) {
 							if(tempName == itemNames[iii]) {
 								itemsBought[0][iii]++; 
+								if(hasBought[ii] = false) {
+									hasBought[ii] = true;
+									itemsBought[1][iii]++; 
 							}
 						}
 						
@@ -44,11 +53,22 @@ public class A1Jedi {
 			
 
 			}
+			}
+				
+			for(int i = 0; i< totalItems; i++) {
+			/*
+			for(int i = 0; i< totalItems; i++) {
+
+				if(itemsBought[i].equals(0)) {
+					System.out.println("No customers bought " + itemNames[i]);
+				}
+				
+				System.out.println(itemsBought[1][i] + "customers bought " + itemsBought[0][i] + " " + itemNames[i] + "\n");
+				
+				
+				}
 		
-		
-		
-		
-		
+		*/
 		
 		
 		
