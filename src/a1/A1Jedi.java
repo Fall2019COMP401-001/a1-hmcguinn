@@ -30,13 +30,13 @@ public class A1Jedi {
 				trashName = scan.next(); 
 				
 				int numberOfItemsBought = scan.nextInt(); 
-				
+				boolean[] hasBought = new boolean[totalItems];
+
 				for(int ii = 0; ii <numberOfItemsBought; ii++) {
 					int temp = scan.nextInt(); 
 					String tempName = scan.next(); 
 					int index = 0;
 					
-					boolean[] hasBought = new boolean[numberOfItemsBought];
 					String[] listOfItemNames = new String[numberOfItemsBought];
 					listOfItemNames[ii] = tempName; 
 					
@@ -44,8 +44,8 @@ public class A1Jedi {
 							if(tempName.contentEquals(itemNames[iii])) {
 								
 								itemsBought[0][iii] = itemsBought[0][iii] + temp;
-								if(hasBought[ii] == false) {
-									hasBought[ii] = true;
+								if(hasBought[iii] == false) {
+									hasBought[iii] = true;
 									itemsBought[1][iii] = itemsBought[1][iii] + 1; 
 							}
 						}
